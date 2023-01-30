@@ -1,0 +1,59 @@
+[project]
+name = "package_name"
+description = "Provide description here"
+authors = [{ name = "AUTHOR_NAME", email = "AUTHOR_MAIL@users.noreply.github.com"}]
+dynamic = ["version"]
+requires-python = ">=3.8"
+
+[build-system]
+requires = [
+  "setuptools >= 42",
+  "wheel",
+]
+build-backend = "setuptools.build_meta"
+
+[tool.isort]
+profile = "black"
+sections = ['FUTURE', 'STDLIB', 'THIRDPARTY', 'FIRSTPARTY', 'LOCALFOLDER']
+
+[tool.pylint.MASTER]
+j=0
+load-plugins="pylint.extensions.docparams,pylint.extensions.docstyle"
+min-public-methods=0
+generated-members="numpy.*,torch.*"
+
+[tool.pylint.parameter_documentation]
+accept-no-param-doc = true
+accept-no-raise-doc = true
+accept-no-return-doc = true
+accept-no-yields-doc = true
+default-docstring-type = "google"
+
+[tool.pylint.format]
+disable=["C0114", "C0103"]
+max-line-length=120
+
+[tool.pylint.tests]
+disable=["C0114", "C0103", "C0115", "C0116", "R0914"]
+
+[tool.black]
+line-length=120
+
+[tool.pytest.ini_options]
+testpaths = [
+    "tests",
+]
+
+[[tool.mypy.overrides]]
+module = []
+ignore_missing_imports=true
+
+[[tool.mypy.overrides]]
+module = []
+follow_imports = "silent"
+follow_imports_for_stubs = true
+
+[tool.pyright]
+include = ["package_name", "tests"]
+typeCheckingMode = "basic"
+useLibraryCodeForTypes = true
