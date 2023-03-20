@@ -4,7 +4,7 @@
 #
 #    pip-compile --resolver=backtracking setup.cfg
 #
-torch==1.13.1
+torch==2.0.0
     # via package-name (setup.cfg)
 typing-extensions==4.5.0
     # via torch
