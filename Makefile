@@ -25,13 +25,10 @@ install: clean upgrade
 	pip install build wheel
 	pip install .
 
-.PHONY: taurus
-taurus: clean upgrade
+.PHONY: develop
+develop: clean upgrade
 	pip install build wheel
 	pip install -e .[dev]
-
-.PHONY: develop
-develop: taurus
 	pre-commit install
 
 # BUILD
